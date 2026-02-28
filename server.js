@@ -72,6 +72,12 @@ router.post('/signin', (req, res) => {
     }
 });
 
+router.all('/signup', (req, res) => {
+    // Returns a message stating that the HTTP method is unsupported.
+    //allows failure testing outside of the movies
+    res.status(405).send({ message: 'HTTP method not supported.' });
+});
+
 router.route('/movies')
     .get((req, res) => {
         console.log(req.body);
