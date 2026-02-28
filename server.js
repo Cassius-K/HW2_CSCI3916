@@ -66,7 +66,7 @@ router.post('/signin', (req, res) => {
             var token = jwt.sign(userToken, process.env.SECRET_KEY);
             res.json ({success: true, token: 'JWT ' + token});
         }
-        else {
+        else if (!password) {
             res.status(401).send({success: false, msg: 'Authentication failed.'});
         }
     }
