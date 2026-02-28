@@ -57,20 +57,17 @@ router.post('/signup', (req, res) => {
 
 router.post('/signin', (req, res) => {
     var user = db.findOne(req.body.username);
-    var password = db.findOne(req.body.password);
 
     if (!user) {
         res.status(401).send({success: false, msg: 'Authentication failed. User not found.'});
-        
-    }  
-    if (!password) {
-        res.status(401).send({success: false, msg: 'Authentication failed.'});
-    }
-    else {
+    } else {
         if (req.body.password == user.password) {
             var userToken = { id: user.id, username: user.username };
             var token = jwt.sign(userToken, process.env.SECRET_KEY);
             res.json ({success: true, token: 'JWT ' + token});
+        }
+        else {
+            res.status(401).send({success: false, msg: 'Authentication failed.'});
         }
     }
 });
