@@ -94,7 +94,7 @@ router.route('/movies')
         }
         var o = getJSONObjectForMovieRequirement(req);
         o.status = 200;
-        o.message = "Getting Movies";
+        o.message = "GET movies";
         res.json(o);
     })
 
@@ -106,7 +106,7 @@ router.route('/movies')
         }
         var o = getJSONObjectForMovieRequirement(req);
         o.status = 200;
-        o.message = "Movie Saved";
+        o.message = "movie saved";
         res.json(o);
     })
 
@@ -118,7 +118,7 @@ router.route('/movies')
         }
         var o = getJSONObjectForMovieRequirement(req);
         o.status = 200;
-        o.message = "Movie Has Been Updated";
+        o.message = "movie updated";
         res.json(o);
     }
     )
@@ -131,7 +131,7 @@ router.route('/movies')
         }
         var o = getJSONObjectForMovieRequirement(req);
         o.status = 200;
-        o.message = "Movie Has Been Deleted";
+        o.message = "movie deleted";
         res.json(o);
     }
     )
